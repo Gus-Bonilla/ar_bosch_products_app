@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentProducts">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/buttonDremel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="buttonDremel"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="177dp"
+            android:text="Dremel 3000"
+            tools:ignore="OnClick" />
+
+        <Button
+            android:id="@+id/buttonHerramienta1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="buttonTaladro"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="246dp"
+            android:text="Taladro de columna PBD 40"
+            android:textAlignment="center"
+            tools:ignore="OnClick" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="152dp"
+            android:layout_height="72dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="-133dp"
+            android:layout_marginTop="53dp"
+            android:layout_toEndOf="@+id/buttonDremel"
+            android:text="Products"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="30sp" />
+    </RelativeLayout>
+</FrameLayout>

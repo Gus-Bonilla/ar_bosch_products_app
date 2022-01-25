@@ -1,0 +1,36 @@
+Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://esb.boschenlinea.com/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        BoschProductCatalogApi boschProductCatalogApi = retrofit.create(BoschProductCatalogApi.class);
+
+
+
+        Call<List<Post>> call = boschProductCatalogApi.getPosts();
+        
+        call.enqueue(new Callback<List<Post>>() {
+            @Override
+            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
+                if(!response.isSuccessful()){
+                    textViewProducts.setText("Code: " + response.code());
+                }
+
+                List<Post> posts = response.body();
+                for(Post post : posts){
+                    String content = "";
+                    content += "ID: " + post.getID() + "\n";
+                    content += "Price: " + post.getPrice() + "\n";
+                    content += "Name: " + post.getName() + "\n";
+                    content += post.getLongDescription() + "\n\n";
+
+                    textViewProducts.append(content);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Post>> call, Throwable t) {
+                textViewProducts.setText(t.getMessage());
+            }
+        });
